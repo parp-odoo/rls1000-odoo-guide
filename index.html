@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure an RLS1000 Scale with Odoo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://www.odoo.com/web/static/img/favicon.ico">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div>
+                <h1>Configure an RLS1000 Scale with Odoo</h1>
+                <p>A comprehensive guide to network setup, barcode configuration, and product synchronization.</p>
+            </div>
+            <img src="images/logo.png" alt="Odoo Logo" class="logo">
+        </header>
+
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#requirements">Requirements</a></li>
+                <li><a href="#wifi">Connect the Scale to Wi-Fi</a></li>
+                <li><a href="#barcode">Configure a Custom Barcode Format</a></li>
+                <li><a href="#odoo">Configure Products in Odoo</a></li>
+                <li><a href="#export">Export Product Data from Odoo</a></li>
+                <li><a href="#plu">Prepare the PLU Data File</a></li>
+                <li><a href="#import">Import Product Data into the Scale</a></li>
+                <li><a href="#verify">Verify the Integration</a></li>
+            </ul>
+        </div>
+
+        <h2 id="requirements">Requirements</h2>
+        <p>Before starting, make sure you have the following assets ready:</p>
+        <ul>
+            <li>An RLS1000 weighing scale</li>
+            <li>A Windows computer connected to the same network</li>
+            <li>The RLS Software installed on the computer</li>
+            <li>
+                RLS Software download:
+                <a href="https://posiflexindia-my.sharepoint.com/personal/dlsupport4_posiflexindia_com/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fdlsupport4%5Fposiflexindia%5Fcom%2FDocuments%2FRLS%20Software%2Ezip&parent=%2Fpersonal%2Fdlsupport4%5Fposiflexindia%5Fcom%2FDocuments&ga=1"
+                    target="_blank" rel="noopener noreferrer">
+                    Download RLS Software
+                </a>
+            </li>
+        </ul>
+
+        <h2 id="wifi">Connect the Scale to Wi-Fi</h2>
+
+        <a href="https://drive.google.com/file/d/1zZvDEHSdDS7sAo3NaYMkZdtH3IUf9X9o/view?usp=sharing" class="video-cta"
+            target="_blank">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+            </svg>
+            <div class="video-cta-content">
+                <span class="video-cta-title">Watch Configuration Video</span>
+                <span class="video-cta-desc">Follow our step-by-step video guide for Wi-Fi setup.</span>
+            </div>
+        </a>
+
+        <h3>Access the Scale Configuration Menu</h3>
+        <ol>
+            <li>Press and hold the <strong>[SET]</strong> key for approximately 3 seconds.</li>
+            <li>The scale enters the system configuration mode.</li>
+            <li>Use <strong>[↑]</strong> and <strong>[↓]</strong> keys (or the numeric keypad) to navigate.</li>
+            <li>Press <strong>[PRN/ENTER]</strong> to confirm.</li>
+        </ol>
+
+        <h3>Configure Wi-Fi Settings</h3>
+        <ol>
+            <li>Open the <strong>SET WIFI</strong> menu.</li>
+            <li>Select <strong>SSID</strong> and enter your Wi-Fi name.</li>
+            <li>Open <strong>Wi-Fi Security Mode</strong>.</li>
+            <li>Select <strong>WPA2-PSK/AES</strong> (or your router's security mode).</li>
+            <li>Enter the Wi-Fi password.</li>
+        </ol>
+
+        <h3>Configure Network Settings</h3>
+        <p>
+            Windows network settings reference:
+            <a href="https://support.microsoft.com/en-US/Windows/Experience/Connectivity-Networking/essential-network-settings-and-tasks-in-windows"
+                target="_blank" rel="noopener noreferrer">
+                Microsoft Documentation
+            </a>
+        </p>
+        <ol>
+            <li>Open the <strong>SET IP</strong> menu.</li>
+            <li>Configure the scale IP address.</li>
+            <li>Configure the subnet mask.</li>
+            <li>Configure the gateway address.</li>
+        </ol>
+
+        <div class="note">
+            <strong>Important:</strong> The scale's IP address must be within the same subnet as your router and must
+            not conflict with other devices on the network.
+        </div>
+
+        <h3 id="verify-wifi">Restart and Verify Connectivity</h3>
+        <ol>
+            <li>Save the settings and restart the scale.</li>
+            <li>Wait until the Wi-Fi icon appears on the screen.</li>
+            <div class="image-container">
+                <img src="images/Connected.jpg" alt="Scale LCD Screen">
+                <p class="image-caption">Successful Wi-Fi connection indicator on the scale display.</p>
+            </div>
+            <li>Open the RLS Software on your PC.</li>
+            <li>Enter the scale name and assigned IP address.</li>
+            <li>Click <strong>Check Connection</strong>.</li>
+        </ol>
+
+        <div class="image-container">
+            <img src="images/001.png" alt="RLS Software Connection Check">
+            <p class="image-caption">Locate the "Check Connection" button in the RLS Software.</p>
+        </div>
+
+        <div class="image-container">
+            <img src="images/002.png" alt="RLS Software Connection Success">
+            <p class="image-caption">Confirmation of a successful connection (Transfer Status OK).</p>
+        </div>
+
+        <h2 id="barcode">Configure a Custom Barcode Format</h2>
+        <p>The scale must generate barcodes that align with Odoo's barcode nomenclature for weight-based products.</p>
+        <ol>
+            <li>Open the RLS Software.</li>
+            <li>Click the <strong>Settings</strong> (gear) icon.</li>
+            <li>Navigate to the <strong>Custom Barcode</strong> tab.</li>
+            <li>Select an unused barcode slot (e.g., <strong>103</strong>).</li>
+            <li>Enter the following format: <code>21IIIIIWWWWWW</code></li>
+            <li>Set <strong>Right Digit</strong> to <strong>3</strong>.</li>
+            <li>Save the configuration.</li>
+            <li>Click <strong>Download</strong> to push the settings to the scale.</li>
+        </ol>
+
+        <div class="image-container">
+            <img src="images/003.png" alt="Custom Barcode Configuration">
+            <p class="image-caption">Setting up the barcode format in RLS Software.</p>
+        </div>
+
+        <h2 id="odoo">Configure Products in Odoo</h2>
+        <p>Ensure each product in Odoo has a barcode prefix that matches your scale's configuration (e.g., beginning
+            with <code>21</code>).</p>
+        <div class="note">
+            For detailed instructions, refer to the <a
+                href="https://www.odoo.com/documentation/19.0/applications/inventory_and_mrp/barcode/operations/barcode_nomenclature.html#example-product-weight-barcode"
+                target="_blank" rel="noopener noreferrer">Odoo Barcode Documentation</a>.
+        </div>
+
+        <h2 id="export">Export Product Data from Odoo</h2>
+        <ol>
+            <li>Navigate to the <strong>Products</strong> menu in Odoo.</li>
+            <li>Select the products you wish to sync.</li>
+            <li>Click <strong>Action &rarr; Export</strong>.</li>
+            <li>Select the following fields:
+                <ul>
+                    <li>Product Name</li>
+                    <li>Barcode</li>
+                    <li>Sales Price</li>
+                </ul>
+            </li>
+            <li>Choose <strong>CSV</strong> format and click <strong>Export</strong>.</li>
+        </ol>
+
+        <h2 id="plu">Prepare the PLU Data File</h2>
+        <p>Format your exported CSV data according to the required PLU table below:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product Name</td>
+                    <td>The name displayed on the scale's screen.</td>
+                </tr>
+                <tr>
+                    <td>PLU No</td>
+                    <td>The unique lookup number for the product.</td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>The unit price of the product.</td>
+                </tr>
+                <tr>
+                    <td>Unit</td>
+                    <td>Weight unit (kg or g).</td>
+                </tr>
+                <tr>
+                    <td>Barcode Type</td>
+                    <td>Must match your custom barcode slot (e.g., 103).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="import">Import Product Data into the Scale</h2>
+        <ol>
+            <li>Open the RLS Software and select <strong>PLU Manager</strong>.</li>
+        </ol>
+
+        <div class="image-container">
+            <img src="images/004.png" alt="PLU Manager Icon">
+            <p class="image-caption">Access the PLU Manager from the toolbar.</p>
+        </div>
+
+        <ol start="2">
+            <li>Go to <strong>File &rarr; From Excel Input PLU</strong> and select your prepared file.</li>
+        </ol>
+
+        <div class="image-container">
+            <img src="images/005.png" alt="Import PLU Data">
+            <p class="image-caption">Importing product data from an Excel/CSV file.</p>
+        </div>
+
+        <ol start="3">
+            <li>Verify the communication settings (IP address) and click <strong>OK</strong>.</li>
+        </ol>
+
+        <div class="image-container">
+            <img src="images/006.png" alt="Communication Configuration">
+            <p class="image-caption">Confirm the scale IP address before downloading.</p>
+        </div>
+
+        <ol start="4">
+            <li>Monitor the download progress. Once completed, the data is synced.</li>
+        </ol>
+
+        <div class="image-container">
+            <img src="images/007.png" alt="Download Progress">
+            <p class="image-caption">Transferring PLU data to the scale.</p>
+        </div>
+
+        <h2 id="verify">Verify the Integration</h2>
+        <ol>
+            <li>Place a product on the scale.</li>
+            <li>Enter its <strong>PLU number</strong> (e.g., 1, 3, or 13).</li>
+            <li>Press <strong>[PRN/ENTER]</strong> to print the label.</li>
+            <li>In Odoo Point of Sale, scan the printed barcode.</li>
+        </ol>
+        <div class="note">
+            <strong>Success Check:</strong> The product should appear in the POS cart with the correct weight and
+            calculated total price.
+        </div>
+    </div>
+
+</body>
+
+</html>
