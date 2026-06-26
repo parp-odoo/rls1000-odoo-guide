@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RLS1000 PLU Converter | Odoo Integration</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://www.odoo.com/web/static/img/favicon.ico">
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>RLS1000 PLU Converter</h1>
+            <p>Convert your Odoo product export to the weighing scale PLU format in one click.</p>
+        </header>
+
+        <div class="upload-area" id="drop-zone">
+            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <div class="upload-text">
+                <h3>Select or Drop File</h3>
+                <p>Supports <strong>XLSX</strong> and <strong>CSV</strong> exports from Odoo.</p>
+            </div>
+            <input type="file" id="file-input" accept=".xlsx, .csv">
+        </div>
+
+        <div id="loader" class="loader"></div>
+
+        <div class="preview-section" id="preview-section">
+            <h2>Data Preview</h2>
+            <div class="table-container">
+                <table id="preview-table">
+                    <thead>
+                        <tr id="table-head"></tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+            <div class="actions">
+                <button class="button button-primary" id="convert-btn">Convert & Download XLSX</button>
+                <button class="button button-secondary" id="reset-btn">Reset</button>
+            </div>
+        </div>
+
+        <div class="footer-info">
+            <h4>Format Requirements</h4>
+            <ul>
+                <li>Input file must contain: <strong>Name</strong>, <strong>Sales Price</strong>, <strong>Barcode</strong>.</li>
+                <li>Barcode must follow Odoo pattern (e.g., beginning with 21).</li>
+                <li>The output will be formatted for RLS Software (26 columns).</li>
+            </ul>
+        </div>
+
+        <a href="../index.html" class="back-link">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            Back to Documentation Guide
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -342,3 +342,68 @@ a:hover {
         overflow-x: auto;
     }
 }
+.converter-cta {
+    background: linear-gradient(135deg, #714B67 0%, #a17094 100%);
+    border-radius: 16px;
+    padding: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 10px 25px rgba(113, 75, 103, 0.2);
+}
+
+.converter-cta-icon {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.converter-cta-icon svg {
+    width: 42px;
+    height: 42px;
+    stroke: white;
+}
+
+.converter-cta-text h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.converter-cta-text p {
+    margin: 0 0 1.25rem 0;
+    opacity: 0.9;
+    color: white !important;
+}
+
+.button-link {
+    display: inline-block;
+    background: #017E84;
+    color: white !important;
+    text-decoration: none;
+    padding: 0.85rem 1.75rem;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.button-link:hover {
+    background: #016a6f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+@media (max-width: 600px) {
+    .converter-cta {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
